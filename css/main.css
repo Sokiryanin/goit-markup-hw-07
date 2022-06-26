@@ -820,8 +820,8 @@ body {
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.address__link :hover,
-.address__link :focus {
+.address__link:hover,
+.address__link:focus {
   color: var(--accent-color);
 }
 
@@ -838,11 +838,6 @@ body {
           transition-duration: 250ms;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.address__link--white:hover,
-.address__link--white:focus {
-  color: var(--accent-color);
 }
 
 .address__item:not(:last-child) {
