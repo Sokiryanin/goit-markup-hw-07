@@ -14,8 +14,7 @@
 .logo {
   font-family: "Raleway";
   color: var(--accent-color);
-  font-size: 26px;
-  line-height: 1.19;
+  @include font(26px, null, 1.19, 0.03em);
 }
 
 .nav__list {
@@ -31,22 +30,18 @@
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
-
-  font-weight: 500;
   color: var(--primary-color-text);
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-
+  @include font(14px, 500, 1.14, 0.02em);
   position: relative;
 
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav__link:hover,
-.nav__link:focus {
-  color: var(--accent-color);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
 }
 
 .nav__link.underline::after {
@@ -81,19 +76,15 @@
 }
 .contacts__link {
   color: var(--secondary-color-text);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-
+  @include font(14px, 500, 1.14, 0.02em);
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.contacts__link:hover,
-.contacts__link:focus {
-  color: var(--accent-color);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
 }
 
 .contacts__icon {

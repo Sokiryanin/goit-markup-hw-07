@@ -7,10 +7,6 @@
   transition: opacity 250ms, visibility 250ms;
 }
 
-.backdrop.is-hidden.modal {
-  transform: scale(0);
-}
-
 .is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -34,6 +30,9 @@
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms;
   padding: 40px;
+  .backdrop.is-hidden & {
+    transform: scale(0);
+  }
 }
 
 .modal__close-btn {
@@ -56,19 +55,15 @@
   transition-property: fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal__close-btn__icon:hover {
-  fill: var(--accent-color);
+  &:hover {
+    fill: var(--accent-color);
+  }
 }
 
 .modal-title {
   font-family: "Roboto";
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
+  @include font(20px, 700, 1.15, 0.03em);
   text-align: center;
-  letter-spacing: 0.03em;
   margin-bottom: 12px;
 }
 
@@ -85,6 +80,10 @@
   left: 12px;
   top: 50%;
   transform: translateY(-40%);
+
+  .modal-field__input:focus + & {
+    fill: var(--accent-color);
+  }
 }
 
 .modal-field__input {
@@ -99,23 +98,15 @@
   transition-property: border-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-field__input:focus {
-  border-color: var(--accent-color);
-}
-
-.modal-field__input:focus + .modal-field__icon {
-  fill: var(--accent-color);
+  &:focus {
+    border-color: var(--accent-color);
+  }
 }
 
 .modal-field__label {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
+  @include font(12px, 400, 1.17, 0.01em);
   color: #757575;
   display: block;
 }
@@ -136,60 +127,55 @@
   transition-property: border-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+  &:focus {
+    border-color: var(--accent-color);
+  }
 
-.modal-field__text:focus {
-  border-color: var(--accent-color);
-}
-
-.modal-field__text::placeholder {
-  font-family: "Roboto";
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
+  &::placeholder {
+    font-family: "Roboto";
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
 }
 
 .modal-field__check-text {
   display: flex;
   font-family: "Roboto";
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
+  @include font(14px, null, 1.71, 0.03em);
   color: #757575;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+
+  &::before {
+    content: " ";
+    width: 16px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-right: 9px;
+  }
+
+  .modal-field__check:checked + &::before {
+    background-color: var(--accent-color);
+    background-image: url(../images/vector-1.svg);
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .modal-field__check:focus + &::before {
+    border-color: var(--accent-color);
+  }
 }
 
 .modal-field__check-text-link {
   font-family: "Roboto";
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
+  @include font(14px, null, 1.71, 00.03em);
   color: var(--accent-color);
   margin-left: 4px;
-}
-
-.modal-field__check-text::before {
-  content: " ";
-  width: 16px;
-  height: 15px;
-  border: 2px solid black;
-  border-radius: 3px;
-  margin-right: 9px;
-}
-
-.modal-field__check:checked + .modal-field__check-text::before {
-  background-color: var(--accent-color);
-  background-image: url(../images/vector-1.svg);
-  border: none;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.modal-field__check:focus + .modal-field__check-text::before {
-  border-color: var(--accent-color);
 }
 
 .modal-btn {
@@ -206,19 +192,15 @@
   border-radius: 4px;
 
   font-family: "Roboto";
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-
-  letter-spacing: 0.06em;
+  @include font(16px, 700, 1.88, 0.06em);
   color: #ffffff;
 
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.modal-btn:hover,
-.modal-btn:focus {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
 }

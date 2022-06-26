@@ -8,10 +8,9 @@
 }
 .benefits__item {
   width: 270px;
-}
-
-.benefits__item:not(:last-child) {
-  margin-right: 30px;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
 .benefits-box {
@@ -28,14 +27,9 @@
 .benefits__title {
   margin-bottom: 10px;
   color: var(--primary-color-text);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
+  @include font(14px, 700, 1.14, 0.03em);
 }
 .benefits__text {
   color: var(--secondary-color-text);
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
+  @include font(14px, null, 1.71, 0.03em);
 }
