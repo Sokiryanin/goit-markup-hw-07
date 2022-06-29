@@ -435,6 +435,7 @@ body {
 }
 
 .nav__link {
+  position: relative;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -443,7 +444,6 @@ body {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  position: relative;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 250ms;
@@ -454,9 +454,8 @@ body {
 .nav__link:hover, .nav__link:focus {
   color: var(--accent-color);
 }
-
-.nav__link.underline::after {
-  content: "";
+.nav__link.current::after {
+  content: " ";
   position: absolute;
   width: 100%;
   height: 4px;
@@ -464,18 +463,6 @@ body {
   border-radius: 2px;
   left: 0;
   bottom: 0;
-  opacity: 0;
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 250ms;
-          transition-duration: 250ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav__link.underline:hover::after,
-.nav__link.underline:focus::after {
-  opacity: 1;
 }
 
 .contacts {
@@ -864,6 +851,10 @@ body {
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.footer__socials-list__icon {
+  fill: white;
+}
+
 .subscribe {
   margin-left: 93px;
 }
@@ -1107,7 +1098,7 @@ body {
   font-family: "Roboto";
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.142;
+  line-height: 1.2;
   letter-spacing: 0.06em;
 }
 
